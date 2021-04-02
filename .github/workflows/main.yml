@@ -55,7 +55,7 @@ jobs:
         with:
           token: ${{ secrets.TOKEN }}
           bucket: ${{ secrets.BUCKET }}
-          function_id: 'd4epbuv2hl4gc7juqdka'
+          function_id: 'd4e8n8v6ge3q30mi7e0v'
           service_account: ${{ secrets.SERVICE_ACCOUNT }}
           runtime: 'nodejs12-preview'
           memory: '128'
