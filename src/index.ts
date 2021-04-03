@@ -35,11 +35,12 @@ async function setSlackStatus(status_text: string) {
     profile = {
       status_text: status_text.replace(regExp, '').trim(),
       status_emoji,
-      status_expiration: new Date().setMinutes(new Date().getMinutes() + 5),
     };
   }
 
-  await fetch('https://slack.com/api/users.profile.set', {
+  console.log('profile: ', JSON.stringify({ profile }));
+
+  const response = await fetch('https://slack.com/api/users.profile.set', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
@@ -49,6 +50,8 @@ async function setSlackStatus(status_text: string) {
       profile,
     }),
   }).then((res) => res.json());
+
+  console.log('slack response: ', JSON.stringify({ response }));
 }
 
 export const handler = router({
